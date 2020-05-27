@@ -1,0 +1,46 @@
+{
+	"name": "potluck_planner_backend",
+	"version": "2.0.0",
+	"description": "Server and API for the potluck planner app",
+	"main": "index.js",
+	"scripts": {
+		"server": "nodemon index.js",
+		"start": "node index.js"
+	},
+	"dependencies": {
+		"axios": "^0.19.2",
+		"bcrypt": "^4.0.1",
+		"bcryptjs": "^2.4.3",
+		"body-parser": "^1.19.0",
+		"connect-session-knex": "^1.6.0",
+		"cors": "^2.8.5",
+		"dotenv": "^8.2.0",
+		"express": "^4.17.1",
+		"express-sessions": "^1.0.6",
+		"global": "^4.4.0",
+		"helmet": "^3.22.0",
+		"heroku": "^7.41.1",
+		"jsonwebtoken": "^8.5.1",
+		"knex": "^0.21.1",
+		"nodemon": "^2.0.4",
+		"pg": "^8.2.1",
+		"sqlite": "^4.0.9",
+		"sqlite3": "^4.2.0"
+	},
+	"devDependencies": {},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Pherpher089/Potluck_Planner_Backend.git"
+	},
+	"keywords": [
+		"Potlcuk",
+		"Lambda",
+		"Chris-Tutor"
+	],
+	"author": "Christopher Tutor",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Pherpher089/Potluck_Planner_Backend/issues"
+	},
+	"homepage": "https://github.com/Pherpher089/Potluck_Planner_Backend#readme"
+}
