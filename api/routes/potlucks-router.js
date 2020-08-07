@@ -149,7 +149,7 @@ router.post("/reqs/:id", restricted, async (req, res) => {
 		// 	fufilled,
 		// };
 		// await PotluckRequirements.insert(response);
-		res.status(200).json(response);
+		res.status(200).json("response");
 	} catch (error) {
 		res.status(500).error;
 	}
