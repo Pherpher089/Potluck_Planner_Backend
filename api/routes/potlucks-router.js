@@ -142,11 +142,11 @@ router.post("/reqs/:id", restricted, async (req, res) => {
 	try {
 		// //TODO This is where my issue might be
 		let response = {
-			potluckId,
 			foodCategory,
 			foodDescription,
 			servings,
 			fufilled,
+			potluckId,
 		};
 		await PotluckRequirements.insert(response);
 		res.status(200).json(response);
