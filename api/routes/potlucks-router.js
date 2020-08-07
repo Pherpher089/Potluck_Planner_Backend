@@ -140,14 +140,15 @@ router.post("/reqs/:id", restricted, async (req, res) => {
 	let potluckId = req.params.id;
 	let { foodCategory, foodDescription, servings, fufilled } = req.body;
 	try {
-		let response = {
-			potluckId,
-			foodCategory,
-			foodDescription,
-			servings,
-			fufilled,
-		};
-		await PotluckRequirements.insert(response);
+		// //TODO This is where my issue might be
+		// let response = {
+		// 	potluckId,
+		// 	foodCategory,
+		// 	foodDescription,
+		// 	servings,
+		// 	fufilled,
+		// };
+		// await PotluckRequirements.insert(response);
 		res.status(200).json(response);
 	} catch (error) {
 		res.status(500).error;
