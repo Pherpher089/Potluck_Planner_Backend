@@ -146,7 +146,7 @@ router.post("/reqs/:id", restricted, async (req, res) => {
 			foodDescription,
 			servings,
 			fufilled,
-			//potluckId,
+			potluckId,
 		};
 		await PotluckRequirements.insert(response);
 		res.status(200).json(response);
