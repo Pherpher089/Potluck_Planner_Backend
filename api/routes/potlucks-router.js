@@ -138,14 +138,13 @@ router.get("/mine", restricted, async (req, res) => {
 
 router.post("/reqs/:id", restricted, async (req, res) => {
 	let potluckId = req.params.id;
-	let { foodCategory, foodDescription, servings, fufilled } = req.body;
+	let { foodCategory, foodDescription, servings } = req.body;
 	try {
 		// //TODO This is where my issue might be
 		let response = {
 			foodCategory,
 			foodDescription,
 			servings,
-			fufilled,
 			potluckId,
 		};
 		await PotluckRequirements.insert(response);
