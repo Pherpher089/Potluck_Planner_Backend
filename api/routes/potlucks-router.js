@@ -116,12 +116,12 @@ router.post("/user/remove", restricted, async (req, res) => {
 				message: " Please provide a valid potluckId",
 			});
 		}
-		let user = await UsersPotlucks.findByUserIdAndPotluckId(
+		await UsersPotlucks.findByUserIdAndPotluckId(
 			userId,
 			potluckId
 		);
-		await UsersPotlucks.remove(user.id);
-		res.status(200).json(user);
+		let newUsers = await UsersPotlucks.remove(user.id);
+		res.status(200).json(newUser);
 	} catch (error) {
 		res.status(500).json(error);
 	}

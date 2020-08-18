@@ -29,7 +29,10 @@ async function update(id, potluck) {
 }
 
 async function remove(id) {
-  return await db("usersPotlucks").where("id", Number(id)).del();
+  let {potluckId} = await db("usersPotlucks").where("id", Number(id)).del();
+  return await db("users")
+    .innerJoin("usersPotlucks", "usersPotlucks.userId", "users.id")
+    .where("potluckId", Number(potluckId));
 }
 
 async function findByUserIdAndPotluckId(userId, potluckId) {
