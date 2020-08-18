@@ -123,7 +123,7 @@ router.post("/user/remove", restricted, async (req, res) => {
 		let newUsers = await UsersPotlucks.remove(user.id);
 		res.status(200).json(newUser);
 	} catch (error) {
-		res.status(500).json(error);
+		res.status(501).json(error);
 	}
 });
 
