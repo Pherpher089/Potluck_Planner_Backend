@@ -20,7 +20,6 @@ server.use("/api/food", foodRouter);
 
 server.get("/", async (req, res) => {
 	res.json({ message: "Its Alive!" });
-	//res.send(<h1>Potluck Planner Backend</h1>);
 });
 
 module.exports = server;
