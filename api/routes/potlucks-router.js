@@ -122,7 +122,7 @@ router.post("/user/remove", restricted, async (req, res) => {
 			potluckId
 			); 
 		let newUsers = await UsersPotlucks.remove(user.id);
-		res.status(200).json(newUser);
+		res.status(200).json(newUsers);
 	} catch (error) {
 		res.status(501).json(error);
 	}
