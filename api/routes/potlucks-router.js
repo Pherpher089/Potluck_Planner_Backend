@@ -121,7 +121,7 @@ router.post("/user/remove", restricted, async (req, res) => {
 			userId,
 			potluckId
 			); 
-		let newUsers = await UsersPotlucks.remove(user.id);
+		let newUsers = await UsersPotlucks.remove(user.userId);
 		if(!newUsers) {
 			res.status.json({message:"newUsers is not returning correctly"})
 		}
