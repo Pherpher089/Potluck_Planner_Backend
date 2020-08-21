@@ -117,11 +117,11 @@ router.post("/user/remove", restricted, async (req, res) => {
 			});
 		}
 		res.status(200).json(newUser);
-		let user = await UsersPotlucks.findByUserIdAndPotluckId(
-			userId,
-			potluckId
-			);
-		let newUsers = await UsersPotlucks.remove(user.id);
+		// let user = await UsersPotlucks.findByUserIdAndPotluckId(
+		// 	userId,
+		// 	potluckId
+		// 	);
+		// let newUsers = await UsersPotlucks.remove(user.id);
 	} catch (error) {
 		res.status(501).json(error);
 	}
