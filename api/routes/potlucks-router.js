@@ -121,8 +121,8 @@ router.post("/user/remove", restricted, async (req, res) => {
 			userId,
 			potluckId
 			); 
-		await UsersPotlucks.remove(user.id);
 		res.status(200).json(user);
+		await UsersPotlucks.remove(user.id);
 	} catch (error) {
 		res.status(501).json(error);
 	}
