@@ -104,28 +104,24 @@ router.post("/user/add", restricted, async (req, res) => {
 });
 
 router.post("/user/remove", restricted, async (req, res) => {
-	try {
-		let { potluckId, userId } = req.body;
-		if (!userId) {
-			res.status(400).json({
-				message: " Please provide a valid userId",
-			});
-		}
-		if (!potluckId) {
-			res.status(400).json({
-				message: " Please provide a valid potluckId",
-			});
-		}
-		
-		let user = await UsersPotlucks.findByUserIdAndPotluckId(
-			userId,
-			potluckId
-			); 
-		res.status(200).json(user);
-		await UsersPotlucks.remove(user.id);
-	} catch (error) {
-		res.status(501).json(error);
-	}
+	  try {
+    let { potluckId, userId } = req.body;
+    if (!userId) {
+      res.status(400).json({
+        message: " Please provide a valid userId",
+      });
+    }
+    if (!potluckId) {
+      res.status(400).json({
+        message: " Please provide a valid potluckId",
+      });
+    }
+    let user = await UsersPotlucks.findByUserIdAndPotluckId(userId, potluckId);
+    await UsersPotlucks.remove(user.id);
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json(error);
+  }
 });
 
 router.get("/mine", restricted, async (req, res) => {
