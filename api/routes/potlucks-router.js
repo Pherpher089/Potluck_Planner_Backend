@@ -97,7 +97,6 @@ router.post("/user/add", restricted, async (req, res) => {
 			attendance: 2,
 		};
 		await UsersPotlucks.insert(toInsert);
-		Users.
 		newUsers = await Users.findByPotluckId(toInsert.potluckId)
     	res.status(200).json(newUsers);
 	} catch (error) {
