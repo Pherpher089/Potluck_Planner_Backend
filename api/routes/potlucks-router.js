@@ -117,8 +117,9 @@ router.post("/user/remove", restricted, async (req, res) => {
       });
     }
     let user = await UsersPotlucks.findByUserIdAndPotluckId(userId, potluckId);
-    await UsersPotlucks.remove(user.id);
-    res.status(200).json(user);
+	await UsersPotlucks.remove(user.id);
+	newUsers = await Users.findByPotluckId(potluckId)
+    res.status(200).json(newUsers);
   } catch (error) {
     res.status(500).json(error);
   }
