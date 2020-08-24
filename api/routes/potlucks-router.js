@@ -187,6 +187,7 @@ router.delete("/reqs/:id", restricted, async (req, res) => {
 	try {
 		const deletedReq = await PotluckRequirements.remove(reqId);
 		const newReqs = PotluckRequirements.getByPotluckId(deletedReq.potluckId);
+		console.log(newReqs)
 		res.status(200).json(newReqs);
 	} catch (error) {
 		res.status(500).json(error);
