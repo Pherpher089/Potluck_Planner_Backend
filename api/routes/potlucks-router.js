@@ -135,6 +135,8 @@ router.get("/mine", restricted, async (req, res) => {
 	}
 });
 
+// Watering my graph
+
 router.post("/reqs/:id", restricted, async (req, res) => {
 	let potluckId = req.params.id;
 	let { foodCategory, foodDescription, servings } = req.body;
