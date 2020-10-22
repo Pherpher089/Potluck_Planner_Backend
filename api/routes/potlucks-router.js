@@ -98,32 +98,32 @@ router.post("/user/add", restricted, async (req, res) => {
 		};
 		await UsersPotlucks.insert(toInsert);
 		newUsers = await Users.findByPotluckId(toInsert.potluckId)
-    	res.status(200).json(newUsers);
+		res.status(200).json(newUsers);
 	} catch (error) {
 		res.status(500).json(error);
 	}
 });
 
 router.post("/user/remove", restricted, async (req, res) => {
-	  try {
-    let { potluckId, userId } = req.body;
-    if (!userId) {
-      res.status(400).json({
-        message: " Please provide a valid userId",
-      });
-    }
-    if (!potluckId) {
-      res.status(400).json({
-        message: " Please provide a valid potluckId",
-      });
-    }
-    let user = await UsersPotlucks.findByUserIdAndPotluckId(userId, potluckId);
-	await UsersPotlucks.remove(user.id);
-	newUsers = await Users.findByPotluckId(potluckId)
-    res.status(200).json(newUsers);
-  } catch (error) {
-    res.status(500).json(error);
-  }
+	try {
+		let { potluckId, userId } = req.body;
+		if (!userId) {
+			res.status(400).json({
+				message: " Please provide a valid userId",
+			});
+		}
+		if (!potluckId) {
+			res.status(400).json({
+				message: " Please provide a valid potluckId",
+			});
+		}
+		let user = await UsersPotlucks.findByUserIdAndPotluckId(userId, potluckId);
+		await UsersPotlucks.remove(user.id);
+		newUsers = await Users.findByPotluckId(potluckId)
+		res.status(200).json(newUsers);
+	} catch (error) {
+		res.status(500).json(error);
+	}
 });
 
 router.get("/mine", restricted, async (req, res) => {
@@ -135,7 +135,6 @@ router.get("/mine", restricted, async (req, res) => {
 	}
 });
 
-// Watering my graph
 
 router.post("/reqs/:id", restricted, async (req, res) => {
 	let potluckId = req.params.id;
@@ -168,8 +167,9 @@ router.put("/reqs/:id", restricted, async (req, res) => {
 			fufilled,
 			potluckId,
 		};
-		let resp = await PotluckRequirements.update(reqId, response);
-		res.status(200).json(resp);
+		await PotluckRequirements.update(reqId, response);
+		let newReqs = await PotluckRequirements.getByPotluckId(potluckId);
+		res.status(200).json(newReqs);
 	} catch (error) {
 		res.status(500).error;
 	}
