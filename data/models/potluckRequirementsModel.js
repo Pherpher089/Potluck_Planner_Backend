@@ -30,7 +30,9 @@ async function update(id, potluck) {
 }
 
 async function remove(id) {
-	return await db("potluckRequirements").where("id", Number(id)).del();
+	let potluck = await db("potluckRequirements").where("id", Number(id))
+	await db("potluckRequirements").where("id", Number(id)).del();
+	return potluck.potluckId;
 }
 
 async function getByPotluckId(potluckId) {
