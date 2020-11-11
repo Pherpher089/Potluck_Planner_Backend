@@ -9,7 +9,7 @@ const foodRouter = require("./routes/food-router.js");
 
 const server = express();
 server.use(bodyParser());
-var whitelist = ['https://potluck-planner-app.netlify.app/']
+var whitelist = ['https://potluck-planner-app.netlify.app']
 var corsOptionsDelegate = function (req, callback) {
 	var corsOptions;
 	if (whitelist.indexOf(req.header('Origin')) !== -1) {
