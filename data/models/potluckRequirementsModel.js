@@ -30,7 +30,7 @@ async function update(id, potluck) {
 }
 
 async function remove(id) {
-	let potluck = await db("potluckRequirements").where("id", Number(id))
+	let potluck = await db("potluckRequirements").where("id", Number(id)).select(potluckId);
 	await db("potluckRequirements").where("id", Number(id)).del();
 	return potluck.potluckId;
 }
