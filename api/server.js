@@ -11,7 +11,6 @@ const server = express();
 server.use(bodyParser());
 const options = {
 	origin: 'https://potluck-planner-app.netlify.app',
-	optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 server.use(cors(options));
 server.use(helmet());
