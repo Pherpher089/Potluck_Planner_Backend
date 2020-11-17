@@ -10,7 +10,7 @@ const foodRouter = require("./routes/food-router.js");
 const server = express();
 server.use(bodyParser());
 const options = {
-	origin: 'https://potluck-planner-app.netlify.app',
+	origin: 'https://potluck-planner-app.netlify.app/',
 }
 server.use(cors(options));
 server.use(helmet());
