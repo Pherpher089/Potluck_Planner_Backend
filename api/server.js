@@ -8,7 +8,6 @@ const potlucksRouter = require("./routes/potlucks-router.js");
 const foodRouter = require("./routes/food-router.js");
 
 const server = express();
-server.use(bodyParser());
 const options = {
 	origin: 'https://potluck-planner-app.netlify.app/',
 }
