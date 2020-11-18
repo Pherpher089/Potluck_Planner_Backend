@@ -9,13 +9,14 @@ const foodRouter = require("./routes/food-router.js");
 
 const server = express();
 server.use(bodyParser({ extended: false }));
-const options = {
-	origin: 'https://potluck-planner-app.netlify.app',
-}
-server.use(cors(options));
+// const options = {
+// 	origin: 'https://potluck-planner-app.netlify.app',
+// }
+// server.use(cors(options));
 server.use(helmet());
 server.use((req, res, next) => {
-	res.header('Access-Control-Allow-Origin', '*')
+	res.header('Access-Control-Allow-Origin', '*');
+	res.header('Access-Control-Allow-Headers', "Origin, X-Requested-With, Content-Type, Accept,Authorization")
 })
 server.use("/api/auth", authRouter);
 server.use("/api/users", usersRouter);
