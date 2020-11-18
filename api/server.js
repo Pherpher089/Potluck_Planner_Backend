@@ -10,9 +10,9 @@ const foodRouter = require("./routes/food-router.js");
 const server = express();
 //server.use(bodyParser({ extended: false }));
 server.use((req, res, next) => {
-	req.header('Access-Control-Allow-Origin: *');
-	req.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
-	req.header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
+	res.header('Access-Control-Allow-Origin: *');
+	res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+	res.header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 })
 const options = {
 	origin: 'https://potluck-planner-app.netlify.app',
