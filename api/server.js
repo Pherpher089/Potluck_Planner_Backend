@@ -14,10 +14,10 @@ const options = {
 }
 server.use(cors(options));
 server.use(helmet());
-// server.use((req, res, next) => {
-// 	res.header('Access-Control-Allow-Origin', '*');
-// 	res.header('Access-Control-Allow-Headers', "Origin, X-Requested-With, Content-Type, Accept,Authorization")
-// })
+server.use((req, res, next) => {
+	res.header('Access-Control-Allow-Origin', '*');
+	res.header('Access-Control-Allow-Headers', "Origin, X-Requested-With, Content-Type, Accept,Authorization")
+})
 server.use("/api/auth", authRouter);
 server.use("/api/users", usersRouter);
 server.use("/api/potlucks", potlucksRouter);
