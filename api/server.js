@@ -8,12 +8,12 @@ const potlucksRouter = require("./routes/potlucks-router.js");
 const foodRouter = require("./routes/food-router.js");
 
 const server = express();
-//server.use(bodyParser({ extended: false }));
-// server.use((req, res, next) => {
-// 	res.header('Access-Control-Allow-Origin: *');
-// 	res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
-// 	res.header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token, Authorization');
-// })
+server.use(bodyParser({ extended: false }));
+server.use((req, res, next) => {
+	res.header('Access-Control-Allow-Origin: *');
+	res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+	res.header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token, Authorization');
+})
 var allowlist = ['https://potluck-planner-app.netlify.app', 'https://potluck-planner-app.netlify.app/']
 var corsOptionsDelegate = function (req, callback) {
 	var corsOptions;
