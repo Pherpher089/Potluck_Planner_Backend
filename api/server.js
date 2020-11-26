@@ -14,7 +14,7 @@ server.use((req, res, next) => {
 	res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
 	res.header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token, Authorization');
 })
-// var allowlist = ['https://potluck-planner-app.netlify.app', 'https://potluck-planner-app.netlify.app/']
+// var allowlist = ['https://potluck-planner-app.netlify.app', 'https://potluck-planner-ap c p.netlify.app/']
 // var corsOptionsDelegate = function (req, callback) {
 // 	var corsOptions;
 // 	if (allowlist.indexOf(req.header('Origin')) !== -1) {
