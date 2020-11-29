@@ -37,8 +37,9 @@ router.post("/register", async (req, res) => {
 });
 
 router.post("/login", (req, res) => {
+	console.log('\n' + req.body + '\n')
 	let { email, password } = req.body;
-
+	console.log(email + " " + password);
 	Users.findByEmail(email)
 		.then((user) => {
 			if (user && bcrypt.compareSync(password, user.password)) {

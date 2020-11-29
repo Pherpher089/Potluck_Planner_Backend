@@ -3,7 +3,6 @@ const secrets = process.env.JWT_SECRET || "lambda";
 
 module.exports = (req, res, next) => {
 	const token = req.headers.auth;
-	console.log();
 	console.log(`Token: ${token}`);
 
 	if (token) {
