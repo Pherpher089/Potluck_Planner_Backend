@@ -38,7 +38,8 @@ router.post("/register", async (req, res) => {
 
 router.post("/login", (req, res) => {
 	console.log('\n' + req.body + '\n')
-	let { email, password } = req.body;
+	let email = req.body.email;
+	let password = req.body.password;
 	console.log(email + " " + password);
 	Users.findByEmail(email)
 		.then((user) => {
