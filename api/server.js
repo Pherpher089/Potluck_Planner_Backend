@@ -8,16 +8,11 @@ const potlucksRouter = require("./routes/potlucks-router.js");
 const foodRouter = require("./routes/food-router.js");
 
 const server = express();
-//server.use(bodyParser({ extended: false }));
-// server.use((req, res, next) => {
-// 	res.header('Access-Control-Allow-Origin: *');
-// 	res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
-// 	res.header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token, Authorization');
-// })
-var allowlist = ['https://potluck-planner-app.netlify.app', 'https://potluck-planner-app.netlify.app/', 'http://localhost:3000/', '*']
+server.use(bodyParser({ extended: false }));
+var allowList = ['https://potluck-planner-app.netlify.app', 'https://potluck-planner-app.netlify.app/', 'http://localhost:3000/', '*']
 var corsOptionsDelegate = function (req, callback) {
 	var corsOptions;
-	if (allowlist.indexOf(req.header('Origin')) !== -1) {
+	if (allowList.indexOf(req.header('Origin')) !== -1) {
 		corsOptions = { origin: true } // reflect (enable) the requested origin in the CORS response
 	} else {
 		corsOptions = { origin: false } // disable CORS for this request
@@ -25,7 +20,7 @@ var corsOptionsDelegate = function (req, callback) {
 	callback(null, corsOptions) // callback expects two parameters: error and options
 }
 
-server.use(cors());
+server.use(cors(corsOptions));
 server.use(helmet());
 server.use("/api/auth", authRouter);
 server.use("/api/users", usersRouter);
