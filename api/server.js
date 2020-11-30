@@ -9,19 +9,17 @@ const foodRouter = require("./routes/food-router.js");
 
 const server = express();
 server.use(bodyParser({ extended: false }));
-var allowList = ['https://potluck-planner-app.netlify.app', 'https://potluck-planner-app.netlify.app/', 'http://localhost:3000/', '*']
+var allowList = ['https://potluck-planner-app.netlify.app', 'http://localhost:3000/', '*']
 var corsOptionsDelegate = function (req, callback) {
-	var corsOptions;
-	if (allowList.indexOf(req.header('Origin')) !== -1) {
-		corsOptions = { origin: true } // reflect (enable) the requested origin in the CORS response
-	} else {
-		corsOptions = { origin: false } // disable CORS for this request
-	}
+	var corsOptions = {
+		origin: '*'
+	};
+
 	callback(null, corsOptions) // callback expects two parameters: error and options
 }
 
-server.use(cors());
-server.use(helmet());
+server.use(cors(corsOptionsDelegate));
+//server.use(helmet());
 server.use("/api/auth", authRouter);
 server.use("/api/users", usersRouter);
 server.use("/api/potlucks", potlucksRouter);
