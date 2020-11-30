@@ -20,7 +20,7 @@ var corsOptionsDelegate = function (req, callback) {
 	callback(null, corsOptions) // callback expects two parameters: error and options
 }
 
-server.use(cors(corsOptions));
+server.use(cors());
 server.use(helmet());
 server.use("/api/auth", authRouter);
 server.use("/api/users", usersRouter);
