@@ -24,7 +24,7 @@ server.use(function (req, res, next) {
 	next();
 });
 
-server.use(cors(corsOptionsDelegate));
+//server.use(cors(corsOptionsDelegate));
 server.use(helmet());
 server.use("/api/auth", authRouter);
 server.use("/api/users", usersRouter);
