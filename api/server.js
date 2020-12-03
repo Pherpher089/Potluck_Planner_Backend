@@ -22,15 +22,15 @@ var corsOptions = {
 	methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
 	optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
-const server = express();
-server.use(bodyParser({ extended: false }));
+
 // server.use(function (req, res, next) {
 // 	res.header("Access-Control-Allow-Origin", "*");
 // 	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 // 	next();
 // });
-
+const server = express();
 server.use(cors(corsOptions));
+server.use(bodyParser({ extended: false }));
 server.use(helmet());
 server.use("/api/auth", authRouter);
 server.use("/api/users", usersRouter);
