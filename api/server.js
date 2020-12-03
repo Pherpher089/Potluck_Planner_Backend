@@ -8,23 +8,29 @@ const potlucksRouter = require("./routes/potlucks-router.js");
 const foodRouter = require("./routes/food-router.js");
 
 
-var allowList = ['https://potluck-planner-app.netlify.app', 'http://localhost:3000/', '*']
-var corsOptionsDelegate = function (req, callback) {
-	var corsOptions = {
-		origin: '*'
-	};
+// var allowList = ['https://potluck-planner-app.netlify.app', 'http://localhost:3000/', '*']
+// var corsOptionsDelegate = function (req, callback) {
+// 	var corsOptions = {
+// 		origin: '*'
+// 	};
 
-	callback(null, corsOptions) // callback expects two parameters: error and options
+// 	callback(null, corsOptions) // callback expects two parameters: error and options
+// }
+var corsOptions = {
+	origin: '*',
+	allowedHeaders: ['Content-Type', 'Authorization', 'Content-Length', 'X-Requested-With', 'Accept'],
+	methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
+	optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 const server = express();
 server.use(bodyParser({ extended: false }));
-server.use(function (req, res, next) {
-	res.header("Access-Control-Allow-Origin", "*");
-	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-	next();
-});
+// server.use(function (req, res, next) {
+// 	res.header("Access-Control-Allow-Origin", "*");
+// 	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+// 	next();
+// });
 
-//server.use(cors(corsOptionsDelegate));
+server.use(cors(corsOptions));
 server.use(helmet());
 server.use("/api/auth", authRouter);
 server.use("/api/users", usersRouter);
