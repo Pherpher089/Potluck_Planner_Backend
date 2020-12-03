@@ -18,7 +18,7 @@ const foodRouter = require("./routes/food-router.js");
 // }
 var corsOptions = {
 	origin: '*',
-	allowedHeaders: ['Content-Type', 'Authorization', 'Content-Length', 'X-Requested-With', 'Accept'],
+	allowedHeaders: ['Content-Type', 'Authorization', 'Content-Length', 'X-Requested-With', 'Accept', 'auth'],
 	methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
 	optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
